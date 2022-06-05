@@ -14,9 +14,9 @@ type GPU struct {
 	// AccountingModeBufferSize string `xml:"accounting_mode_buffer_size" json:"accounting_mode_buffer_size"`
 	// CurrentDm                string `xml:"driver_model>current_dm" json:"current_dm"`
 	// PendingDm                string `xml:"driver_model>pending_dm" json:"pending_dm"`
-	Serial        string `xml:"serial" json:"serial"`
-	UUID          string `xml:"uuid" json:"uuid"`
-	MinorNumber   string `xml:"minor_number" json:"minor_number"`
+	// Serial        string `xml:"serial" json:"serial"`
+	UUID string `xml:"uuid" json:"uuid"`
+	// MinorNumber   string `xml:"minor_number" json:"minor_number"`
 	VbiosVersion  string `xml:"vbios_version" json:"vbios_version"`
 	MultigpuBoard string `xml:"multigpu_board" json:"multigpu_board"`
 	BoardID       string `xml:"board_id" json:"board_id"`
