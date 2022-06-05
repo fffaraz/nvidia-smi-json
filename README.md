@@ -2,5 +2,7 @@
 nvidia-smi xml to json
 
 ```
-nvidia-smi.exe -q -x | go run . > output.json
+nvidia-smi-json -q
+OR
+nvidia-smi -q -x | nvidia-smi-json > output.json
 ```
