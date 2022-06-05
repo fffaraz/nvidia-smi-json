@@ -1,4 +1,4 @@
-package main
+package nvidiasmijson
 
 type GPU struct {
 	ID                  string `xml:"id,attr" json:"id"`
