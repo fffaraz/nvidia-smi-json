@@ -1,4 +1,4 @@
 How to build on Windows:
-$env:GOOS="linux"; $env:GOARCH="amd64"; $env:CGO_ENABLED=0; go build -ldflags "-s -w" .
-$env:GOOS="windows"; $env:GOARCH="amd64"; $env:CGO_ENABLED=0; go build -ldflags "-s -w" .
+$env:GOOS="linux"; $env:GOARCH="amd64"; $env:CGO_ENABLED=0; go build -ldflags "-s -w" ./cmd/nvidia-smi-json.go
+$env:GOOS="windows"; $env:GOARCH="amd64"; $env:CGO_ENABLED=0; go build -ldflags "-s -w" ./cmd/nvidia-smi-json.go
 ---
