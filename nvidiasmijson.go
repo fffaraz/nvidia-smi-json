@@ -13,6 +13,7 @@ func XmlToObject(input []byte) *NvidiaSmiLog {
 	var data NvidiaSmiLog
 	if err := xml.Unmarshal(input, &data); nil != err {
 		fmt.Fprintln(os.Stderr, "Error unmarshalling from XML:", err)
+		return nil
 	}
 	return &data
 }
@@ -25,6 +26,11 @@ func XmlToJson(input []byte) string {
 		return ""
 	}
 	return string(output)
+}
+
+func HasNvidiaSmi() bool {
+	_, err := exec.LookPath("nvidia-smi")
+	return err == nil
 }
 
 func RunNvidiaSmi() []byte {

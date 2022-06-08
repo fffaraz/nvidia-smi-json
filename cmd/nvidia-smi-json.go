@@ -14,7 +14,11 @@ func main() {
 	flag.BoolVar(&query, "q", false, "run nvidia-smi -q")
 	flag.Parse()
 	if query {
-		fmt.Println(nvidiasmijson.XmlToJson(nvidiasmijson.RunNvidiaSmi()))
+		if nvidiasmijson.HasNvidiaSmi() {
+			fmt.Println(nvidiasmijson.XmlToJson(nvidiasmijson.RunNvidiaSmi()))
+		} else {
+			fmt.Fprintln(os.Stderr, "nvidia-smi not found")
+		}
 		return
 	}
 	input, err := ioutil.ReadAll(os.Stdin)
