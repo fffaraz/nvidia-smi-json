@@ -33,6 +33,13 @@ func HasNvidiaSmi() bool {
 	return err == nil
 }
 
+func GetNvidiaSmiLog() *NvidiaSmiLog {
+	if !HasNvidiaSmi() {
+		return nil
+	}
+	return XmlToObject(RunNvidiaSmi())
+}
+
 func RunNvidiaSmi() []byte {
 	cmd := "nvidia-smi"
 	if runtime.GOOS == "windows" {
