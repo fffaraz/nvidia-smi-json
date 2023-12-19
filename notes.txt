@@ -2,3 +2,5 @@ How to build on Windows:
 $env:GOOS="linux"; $env:GOARCH="amd64"; $env:CGO_ENABLED=0; go build -ldflags "-s -w" ./cmd/nvidia-smi-json.go
 $env:GOOS="windows"; $env:GOARCH="amd64"; $env:CGO_ENABLED=0; go build -ldflags "-s -w" ./cmd/nvidia-smi-json.go
 ---
+With Docker to windows:
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp -e GOOS=windows -e GOARCH=amd64 -e CGO_ENABLED=0 golang:1.21 go build -v -ldflags "-s -w" ./cmd/nvidia-smi-json.go 
