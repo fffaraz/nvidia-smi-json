@@ -115,14 +115,14 @@ type GPU struct {
 	GpuTempMaxMemThreshold string `xml:"temperature>gpu_temp_max_mem_threshold" json:"gpu_temp_max_mem_threshold"`
 	GpuTargetTempMin       string `xml:"supported_gpu_target_temp>gpu_target_temp_min" json:"gpu_target_temp_min"`
 	GpuTargetTempMax       string `xml:"supported_gpu_target_temp>gpu_target_temp_max" json:"gpu_target_temp_max"`
-	PowerState             string `xml:"power_readings>power_state" json:"power_state"`
-	PowerManagement        string `xml:"power_readings>power_management" json:"power_management"`
-	PowerDraw              string `xml:"power_readings>power_draw" json:"power_draw"`
-	PowerLimit             string `xml:"power_readings>power_limit" json:"power_limit"`
-	DefaultPowerLimit      string `xml:"power_readings>default_power_limit" json:"default_power_limit"`
-	EnforcedPowerLimit     string `xml:"power_readings>enforced_power_limit" json:"enforced_power_limit"`
-	MinPowerLimit          string `xml:"power_readings>min_power_limit" json:"min_power_limit"`
-	MaxPowerLimit          string `xml:"power_readings>max_power_limit" json:"max_power_limit"`
+	PowerState             string `xml:"gpu_power_readings>power_state" json:"power_state"`
+	PowerManagement        string `xml:"gpu_power_readings>power_management" json:"power_management"`
+	PowerDraw              string `xml:"gpu_power_readings>power_draw" json:"power_draw"`
+	PowerLimit             string `xml:"gpu_power_readings>current_power_limit" json:"power_limit"`
+	DefaultPowerLimit      string `xml:"gpu_power_readings>default_power_limit" json:"default_power_limit"`
+	EnforcedPowerLimit     string `xml:"gpu_power_readings>requested_power_limit" json:"enforced_power_limit"`
+	MinPowerLimit          string `xml:"gpu_power_readings>min_power_limit" json:"min_power_limit"`
+	MaxPowerLimit          string `xml:"gpu_power_readings>max_power_limit" json:"max_power_limit"`
 	GraphicsClock          string `xml:"clocks>graphics_clock" json:"graphics_clock"`
 	SmClock                string `xml:"clocks>sm_clock" json:"sm_clock"`
 	MemClock               string `xml:"clocks>mem_clock" json:"mem_clock"`
