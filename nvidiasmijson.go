@@ -15,6 +15,10 @@ func XmlToObject(input []byte) *NvidiaSmiLog {
 		fmt.Fprintln(os.Stderr, "Error unmarshalling from XML:", err)
 		return nil
 	}
+	// Remove verbose supported clocks list
+	for i := range data.GPUS {
+		data.GPUS[i].SupportedClocks = []SupportedMemClock{}
+	}
 	return &data
 }
 
