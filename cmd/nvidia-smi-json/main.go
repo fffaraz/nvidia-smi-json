@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 
 	nvidiasmijson "github.com/fffaraz/nvidia-smi-json"
@@ -21,7 +21,7 @@ func main() {
 		}
 		return
 	}
-	input, err := ioutil.ReadAll(os.Stdin)
+	input, err := io.ReadAll(os.Stdin)
 	if nil != err {
 		fmt.Fprintln(os.Stderr, "Error reading from stdin:", err)
 		return
