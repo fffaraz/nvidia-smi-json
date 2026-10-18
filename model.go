@@ -5,7 +5,6 @@ type GPU struct {
 	ProductName                                string              `xml:"product_name" json:"product_name"`
 	ProductBrand                               string              `xml:"product_brand" json:"product_brand"`
 	ProductArchitecture                        string              `xml:"product_architecture" json:"product_architecture"`
-	DisplayMode                                string              `xml:"display_mode" json:"display_mode"`
 	DisplayAttached                            string              `xml:"display_attached" json:"display_attached"`
 	DisplayActive                              string              `xml:"display_active" json:"display_active"`
 	PersistenceMode                            string              `xml:"persistence_mode" json:"persistence_mode"`
@@ -130,7 +129,6 @@ type GPU struct {
 	GpuTempMaxMemTlimitThreshold               string              `xml:"temperature>gpu_temp_max_mem_tlimit_threshold" json:"gpu_temp_max_mem_tlimit_threshold"`
 	GpuTargetTempMin                           string              `xml:"supported_gpu_target_temp>gpu_target_temp_min" json:"gpu_target_temp_min"`
 	GpuTargetTempMax                           string              `xml:"supported_gpu_target_temp>gpu_target_temp_max" json:"gpu_target_temp_max"`
-	PowerState                                 string              `xml:"gpu_power_readings>power_state" json:"power_state"`
 	AveragePowerDraw                           string              `xml:"gpu_power_readings>average_power_draw" json:"average_power_draw"`
 	InstantPowerDraw                           string              `xml:"gpu_power_readings>instant_power_draw" json:"instant_power_draw"`
 	GpuCeilingPowerLimit                       PowerLimits         `xml:"gpu_power_readings>gpu_ceiling_power_limit" json:"gpu_ceiling_power_limit"`
@@ -153,10 +151,6 @@ type GPU struct {
 	SmClock                                    string              `xml:"clocks>sm_clock" json:"sm_clock"`
 	MemClock                                   string              `xml:"clocks>mem_clock" json:"mem_clock"`
 	VideoClock                                 string              `xml:"clocks>video_clock" json:"video_clock"`
-	ApplicationsGraphicsClock                  string              `xml:"applications_clocks>graphics_clock" json:"applications_graphics_clock"`
-	ApplicationsMemClock                       string              `xml:"applications_clocks>mem_clock" json:"applications_mem_clock"`
-	DefaultApplicationsGraphicsClock           string              `xml:"default_applications_clocks>graphics_clock" json:"default_applications_graphics_clock"`
-	DefaultApplicationsMemClock                string              `xml:"default_applications_clocks>mem_clock" json:"default_applications_mem_clock"`
 	DeferredMemClock                           string              `xml:"deferred_clocks>mem_clock" json:"deferred_mem_clock"`
 	GraphicsClockMax                           string              `xml:"max_clocks>graphics_clock" json:"graphics_clock_max"`
 	SmClockMax                                 string              `xml:"max_clocks>sm_clock" json:"sm_clock_max"`
@@ -250,7 +244,6 @@ type PowerDraw struct {
 }
 
 type ModulePowerReadings struct {
-	PowerState          string `xml:"power_state" json:"power_state"`
 	AveragePowerDraw    string `xml:"average_power_draw" json:"average_power_draw"`
 	InstantPowerDraw    string `xml:"instant_power_draw" json:"instant_power_draw"`
 	CurrentPowerLimit   string `xml:"current_power_limit" json:"current_power_limit"`
@@ -300,8 +293,6 @@ type AccountedProcess struct {
 
 type NvidiaSmiLog struct {
 	Timestamp      string `xml:"timestamp" json:"timestamp"`
-	DriverVersion  string `xml:"driver_version" json:"driver_version"`
-	CudaVersion    string `xml:"cuda_version" json:"cuda_version"`
 	KmdVersion     string `xml:"kmd_version" json:"kmd_version"`
 	CudaUmdVersion string `xml:"cuda_umd_version" json:"cuda_umd_version"`
 	AttachedGpus   string `xml:"attached_gpus" json:"attached_gpus"`
