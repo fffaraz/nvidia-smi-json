@@ -1,19 +1,36 @@
 # nvidia-smi-json
-nvidia-smi xml to json
 
-```
+Convert `nvidia-smi` XML output to JSON.
+
+## CLI
+
+Install:
+
+```sh
 go install github.com/fffaraz/nvidia-smi-json/cmd/nvidia-smi-json@latest
+```
 
+Run `nvidia-smi` and print JSON directly:
+
+```sh
 nvidia-smi-json -q
-OR
+```
+
+Or pipe existing XML output:
+
+```sh
 nvidia-smi -q -x | nvidia-smi-json > output.json
 ```
 
-## Library usage
+## Library
 
-```
+Install:
+
+```sh
 go get github.com/fffaraz/nvidia-smi-json
 ```
+
+Example:
 
 ```go
 package main
