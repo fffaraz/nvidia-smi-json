@@ -1,3 +1,3 @@
 module github.com/fffaraz/nvidia-smi-json
 
-go 1.26
+go 1.22

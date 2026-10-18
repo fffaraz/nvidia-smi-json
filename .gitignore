@@ -1,3 +1,4 @@
 input.xml
 output.json
 *.exe
+/nvidia-smi-json
