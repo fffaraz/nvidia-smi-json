@@ -15,9 +15,23 @@ func XmlToObject(input []byte) *NvidiaSmiLog {
 		fmt.Fprintln(os.Stderr, "Error unmarshalling from XML:", err)
 		return nil
 	}
-	// Remove verbose supported clocks list
+	if data.GPUS == nil {
+		data.GPUS = []GPU{}
+	}
 	for i := range data.GPUS {
-		data.GPUS[i].SupportedClocks = []SupportedMemClock{}
+		gpu := &data.GPUS[i]
+		// Remove verbose supported clocks list
+		gpu.SupportedClocks = []SupportedMemClock{}
+		// Encode empty lists as [] instead of null
+		if gpu.MigDevices == nil {
+			gpu.MigDevices = []MigDevice{}
+		}
+		if gpu.Processes == nil {
+			gpu.Processes = []ProcessInfo{}
+		}
+		if gpu.AccountedProcesses == nil {
+			gpu.AccountedProcesses = []AccountedProcess{}
+		}
 	}
 	return &data
 }
