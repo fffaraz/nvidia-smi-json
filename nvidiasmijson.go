@@ -20,6 +20,9 @@ func XmlToObject(input []byte) *NvidiaSmiLog {
 
 func XmlToJson(input []byte) string {
 	data := XmlToObject(input)
+	if data == nil {
+		return ""
+	}
 	output, err := json.MarshalIndent(data, "", "  ")
 	if nil != err {
 		fmt.Fprintln(os.Stderr, "Error marshalling to JSON:", err)
